@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import { getDirection, getFont } from './localization/index';
 
 export const shades = {
   primary: {
@@ -50,20 +51,25 @@ export const theme = createTheme({
       light: shades.neutral[100],
     },
   },
+  direction: getDirection(),
   typography: {
     fontFamily: 'IRANSansX',
     fontSize: 12,
     h1: {
       fontSize: 48,
+      fontFamily: getFont(),
     },
     h2: {
       fontSize: 36,
+      fontFamily: getFont(),
     },
     h3: {
       fontSize: 20,
+      fontFamily: getFont(),
     },
     h4: {
       fontSize: 14,
+      fontFamily: getFont(),
     },
   },
 });

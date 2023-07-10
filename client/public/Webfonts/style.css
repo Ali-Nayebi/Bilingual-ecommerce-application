@@ -1,6 +1,6 @@
 ﻿@import url(fontiran.css);
 body {
-  font-family: IRANSansX !important;
+  font-family: IRANSansX;
   margin: 0;
 }
 h1,
@@ -11,7 +11,7 @@ h5,
 h6,
 input,
 textarea {
-  font-family: IRANSansX !important;
+  font-family: IRANSansX;
 }
 ::-webkit-scrollbar {
   width: 7px;
