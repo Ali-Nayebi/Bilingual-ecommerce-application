@@ -1,31 +1,42 @@
 import { ThemeProvider } from '@mui/material/styles'; // we pass the theme that we have created before in theme.js in the app using this
 import { CssBaseline } from '@mui/material';
 import { theme } from './theme';
-import rtlPlugin from 'stylis-plugin-rtl';
-import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
-import { prefixer } from 'stylis';
 import { getDirection } from './localization';
-import Routes from './Routes';
+import { create } from 'jss';
+import { StylesProvider, jssPreset } from '@mui/styles';
+import rtl from 'jss-rtl';
+import Master from './Master';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import cartReducer from './state';
 
-const cacheRtl = createCache({
-  key: 'muirtl',
-  stylisPlugins: [prefixer, rtlPlugin],
+const store = configureStore({
+  reducer: { cart: cartReducer }, // we can have multiple reducers here
+});
+
+const jss = create({
+  plugins: [...jssPreset().plugins, rtl()],
 });
 
 function App() {
   return getDirection() === 'ltr' ? (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Routes />
-    </ThemeProvider>
-  ) : (
-    <CacheProvider value={cacheRtl}>
+    <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Routes />
+        <StylesProvider>
+          <CssBaseline />
+          <Master />
+        </StylesProvider>
       </ThemeProvider>
-    </CacheProvider>
+    </Provider>
+  ) : (
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <StylesProvider jss={jss}>
+          <CssBaseline />
+          <Master />
+        </StylesProvider>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
