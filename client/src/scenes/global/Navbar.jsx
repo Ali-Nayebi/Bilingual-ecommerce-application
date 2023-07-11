@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Badge, Box, IconButton } from '@mui/material';
+import { Badge, Box, Button, IconButton, Typography } from '@mui/material';
 import {
   PersonOutline,
   ShoppingBagOutlined,
@@ -9,6 +9,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { setIsCartOpen } from '../../state';
 import Logo from '../../assets/logo.png';
+import { changeLanguage, lang } from '../../localization';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -35,6 +36,32 @@ const Navbar = () => {
         justifyContent="space-between"
         alignItems="center"
       >
+        <Box>
+          <Button
+            color={lang === 'fa' ? 'secondary' : 'primary'}
+            onClick={() => changeLanguage('fa')}
+          >
+            <Typography
+              fontWeight={lang === 'fa' ? 'bold' : 'normal'}
+              variant="h3"
+            >
+              فارسی
+            </Typography>
+          </Button>
+          {'/'}
+          <Button
+            color={lang === 'en' ? 'secondary' : 'primary'}
+            onClick={() => changeLanguage('en')}
+          >
+            <Typography
+              fontWeight={lang === 'en' ? 'bold' : 'normal'}
+              variant="h3"
+            >
+              English
+            </Typography>
+          </Button>
+        </Box>
+
         <Box
           onClick={() => navigate('/')}
           sx={{ '&:hover': { cursor: 'pointer' }, marginRight: '-10px' }}

@@ -53,7 +53,7 @@ export const theme = createTheme({
   },
   direction: getDirection(),
   typography: {
-    fontFamily: 'IRANSansX',
+    fontFamily: getFont(),
     fontSize: 12,
     h1: {
       fontSize: 48,

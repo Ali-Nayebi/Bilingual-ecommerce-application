@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter, useLocation } from 'react-router-dom';
 import Navbar from './scenes/global/Navbar';
+import Footer from './scenes/global/Footer';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -18,6 +19,7 @@ function Master() {
       <BrowserRouter>
         <Navbar />
         <ScrollToTop />
+        <Footer />
       </BrowserRouter>
     </div>
   );
