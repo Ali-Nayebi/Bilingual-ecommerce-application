@@ -19,4 +19,5 @@ export default {
   price: 'تومان',
   subtotal: 'مجموع',
   checkout: 'تکمیل خرید',
+  addToCart: 'افزودن به سبد خرید',
 };

@@ -19,4 +19,5 @@ export default {
   price: '$',
   subtotal: 'SUBTOTAL',
   checkout: 'CHECKOUT',
+  addToCart: 'Add to Cart',
 };
