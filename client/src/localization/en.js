@@ -20,4 +20,7 @@ export default {
   subtotal: 'SUBTOTAL',
   checkout: 'CHECKOUT',
   addToCart: 'Add to Cart',
+  newItems: '-- NEW ITEMS',
+  summerSale: 'Summer Sale',
+  discoverMore: 'Discover More',
 };

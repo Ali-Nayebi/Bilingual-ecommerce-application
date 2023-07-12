@@ -20,4 +20,7 @@ export default {
   subtotal: 'مجموع',
   checkout: 'تکمیل خرید',
   addToCart: 'افزودن به سبد خرید',
+  newItems: 'کالا های جدید--',
+  summerSale: 'جشنواره تابستانی',
+  discoverMore: '-بیشتر-',
 };
