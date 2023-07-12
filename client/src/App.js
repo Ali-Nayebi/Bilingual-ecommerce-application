@@ -20,23 +20,23 @@ const jss = create({
 
 function App() {
   return getDirection() === 'ltr' ? (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <StylesProvider>
+    <StylesProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <Master />
-        </StylesProvider>
-      </ThemeProvider>
-    </Provider>
+        </ThemeProvider>
+      </Provider>
+    </StylesProvider>
   ) : (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <StylesProvider jss={jss}>
+    <StylesProvider jss={jss}>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <Master />
-        </StylesProvider>
-      </ThemeProvider>
-    </Provider>
+        </ThemeProvider>
+      </Provider>
+    </StylesProvider>
   );
 }
 

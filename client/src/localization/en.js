@@ -15,4 +15,8 @@ export default {
   contactUs: 'Contact Us',
   address: '50 north Whatever Blvd, Washington, DC 10501',
   email: 'Email',
+  shoppingBag: 'SHOPPING BAG',
+  price: '$',
+  subtotal: 'SUBTOTAL',
+  checkout: 'CHECKOUT',
 };

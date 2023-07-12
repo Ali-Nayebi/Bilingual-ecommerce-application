@@ -15,4 +15,8 @@ export default {
   contactUs: 'تماس با ما',
   address: 'یه جایی تو میرداماد پلاک نمی دونم چند واحد 10',
   email: 'ایمیل',
+  shoppingBag: 'سبد خرید',
+  price: 'تومان',
+  subtotal: 'مجموع',
+  checkout: 'تکمیل خرید',
 };
