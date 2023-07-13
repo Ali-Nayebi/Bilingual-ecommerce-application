@@ -2,42 +2,63 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Typography, Tab, Tabs, useMediaQuery } from '@mui/material';
 import Item from '../../components/Item';
-import { setItems } from '../../state';
-import { getTranslate } from '../../localization';
+import { setItemsen, setItemsfa } from '../../state';
+import { getTranslate, getDirection } from '../../localization';
 
 const ShoppingList = () => {
+  const direction = getDirection();
   const translate = getTranslate();
   const dispatch = useDispatch();
   const [value, setValue] = useState('all');
-  const items = useSelector((state) => state.cart.items);
+  const itemsen = useSelector((state) => state.cart.itemsen);
+  const itemsfa = useSelector((state) => state.cart.itemsfa);
   const isNonMobile = useMediaQuery('(min-width:600px)');
-  console.log('items', items);
+  // console.log('itemsen', itemsen);
+  // console.log('itemsfa', itemsfa);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  async function getItems() {
+  async function getItemsen() {
     const items = await fetch(
       'http://localhost:1337/api/itemsen?populate=image',
       { method: 'GET' }
     );
     const itemsJson = await items.json();
-    dispatch(setItems(itemsJson.data));
+    dispatch(setItemsen(itemsJson.data));
+  }
+  async function getItemsfa() {
+    const items = await fetch(
+      'http://localhost:1337/api/itemsfa?populate=image',
+      { method: 'GET' }
+    );
+    const itemsJson = await items.json();
+    dispatch(setItemsfa(itemsJson.data));
   }
 
   useEffect(() => {
-    getItems();
+    getItemsen();
+    getItemsfa();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const topRatedItems = items.filter(
+  const topRatedItemsen = itemsen.filter(
     (item) => item.attributes.category === 'topRated'
   );
-  const newArrivalsItems = items.filter(
+  const topRatedItemsfa = itemsfa.filter(
+    (item) => item.attributes.category === 'برترین ها'
+  );
+  const newArrivalsItemsen = itemsen.filter(
     (item) => item.attributes.category === 'newArrivals'
   );
-  const bestSellersItems = items.filter(
+  const newArrivalsItemsfa = itemsfa.filter(
+    (item) => item.attributes.category === 'تازه ها'
+  );
+  const bestSellersItemsen = itemsen.filter(
     (item) => item.attributes.category === 'bestSellers'
+  );
+  const bestSellersItemsfa = itemsfa.filter(
+    (item) => item.attributes.category === 'پر فروش ها'
   );
 
   return (
@@ -73,19 +94,44 @@ const ShoppingList = () => {
         columnGap="1.33%"
       >
         {value === 'all' &&
-          items.map((item) => (
+          direction === 'ltr' &&
+          itemsen.map((item) => (
+            <Item item={item} key={`${item.name}-${item.id}`} />
+          ))}
+        {value === 'all' &&
+          direction === 'rtl' &&
+          itemsfa.map((item) => (
+            <Item item={item} key={`${item.name}-${item.id}`} />
+          ))}
+
+        {value === 'newArrivals' &&
+          direction === 'ltr' &&
+          newArrivalsItemsen.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
         {value === 'newArrivals' &&
-          newArrivalsItems.map((item) => (
+          direction === 'rtl' &&
+          newArrivalsItemsfa.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
         {value === 'bestSellers' &&
-          bestSellersItems.map((item) => (
+          direction === 'ltr' &&
+          bestSellersItemsen.map((item) => (
+            <Item item={item} key={`${item.name}-${item.id}`} />
+          ))}
+        {value === 'bestSellers' &&
+          direction === 'rtl' &&
+          bestSellersItemsfa.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
         {value === 'topRated' &&
-          topRatedItems.map((item) => (
+          direction === 'ltr' &&
+          topRatedItemsen.map((item) => (
+            <Item item={item} key={`${item.name}-${item.id}`} />
+          ))}
+        {value === 'topRated' &&
+          direction === 'rtl' &&
+          topRatedItemsfa.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
       </Box>
