@@ -23,4 +23,9 @@ export default {
   newItems: 'کالا های جدید--',
   summerSale: 'جشنواره تابستانی',
   discoverMore: '-بیشتر-',
+  ourFeatured: 'محصولات ویژه ما',
+  all: 'همه',
+  newArrivals: 'تازه ها',
+  bestSellers: 'پر فروش ها',
+  topRated: 'برترین ها',
 };

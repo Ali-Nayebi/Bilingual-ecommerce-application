@@ -23,4 +23,9 @@ export default {
   newItems: '-- NEW ITEMS',
   summerSale: 'Summer Sale',
   discoverMore: 'Discover More',
+  ourFeatured: 'Our Featured Products',
+  all: 'ALL',
+  newArrivals: 'NEW ARRIVALS',
+  bestSellers: 'BEST SELLERS',
+  topRated: 'TOP RATED',
 };
