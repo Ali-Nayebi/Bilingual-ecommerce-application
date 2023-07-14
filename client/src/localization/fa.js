@@ -32,4 +32,11 @@ export default {
   coupon: 'و روی اولین سفارش خود یک کوپن 200,000 تومانی دریافت کنید',
   enterEmail: 'ایمیل خود را وارد کنید',
   sub: 'ثبت نام',
+  homeItem: 'خانه / محصول',
+  prevNext: 'قبلی / بعدی',
+  addToWish: 'افزودن به علاقه مندی ها',
+  categories: 'دسته بندی ها:',
+  description: 'توضیحات',
+  reviews: 'نظرات',
+  related: 'محصولات مرتبط',
 };
