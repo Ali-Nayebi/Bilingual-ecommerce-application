@@ -28,4 +28,8 @@ export default {
   newArrivals: 'تازه ها',
   bestSellers: 'پر فروش ها',
   topRated: 'برترین ها',
+  subscribe: 'در خبرنامه ما مشترک شوید',
+  coupon: 'و روی اولین سفارش خود یک کوپن 200,000 تومانی دریافت کنید',
+  enterEmail: 'ایمیل خود را وارد کنید',
+  sub: 'ثبت نام',
 };

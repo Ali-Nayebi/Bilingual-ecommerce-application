@@ -28,4 +28,8 @@ export default {
   newArrivals: 'NEW ARRIVALS',
   bestSellers: 'BEST SELLERS',
   topRated: 'TOP RATED',
+  subscribe: 'Subscribe To Our Newsletter',
+  coupon: 'and recive $20 coupon for your first order when you checkout',
+  enterEmail: 'Enter Email',
+  sub: 'Subscribe',
 };
